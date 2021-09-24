@@ -44,8 +44,8 @@ endif
 ifeq ($(FLAG), 1)
 $(info kperfmon_DUMMY="$(shell cp -f $(srctree)/drivers/kperfmon/ologk.h $(srctree)/include/linux/)")
 ifeq ($(CONFIG_KPERFMON_BUILD), y)
-	obj-y		+= kperfmon.o
+	obj-y	                                	+= kperfmon.o
 else
-	obj-m		+= kperfmon.o
+	obj-$(CONFIG_KPERFMON)		+= kperfmon.o
 endif
 endif
