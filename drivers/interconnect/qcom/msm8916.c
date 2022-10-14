@@ -17,6 +17,10 @@
 #include "smd-rpm.h"
 #include "icc-rpm.h"
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+#endif
+
 enum {
 	MSM8916_BIMC_SNOC_MAS = 1,
 	MSM8916_BIMC_SNOC_SLV,
