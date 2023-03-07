@@ -19,14 +19,12 @@
 #include "msm_vidc_core.h"
 #include "msm_vidc_memory.h"
 #include "venus_hfi.h"
-#include "video_generated_h"
 
 #define BASE_DEVICE_NUMBER 32
 
 struct msm_vidc_core *g_core;
 
-const char video_banner[] = "Video-Banner: (" VIDEO_COMPILE_BY "@"
-	VIDEO_COMPILE_HOST ") (" VIDEO_COMPILE_TIME ")";
+const char video_banner[] = "Video-Banner: ( VIDEO_COMPILE_BY @ VIDEO_COMPILE_HOST ) ( VIDEO_COMPILE_TIME )";
 
 static int msm_vidc_deinit_irq(struct msm_vidc_core *core)
 {
