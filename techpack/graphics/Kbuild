@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
-KDIR := $(TOP)/kernel_platform/common
-
 ifeq ($(KGSL_PATH),)
 KGSL_PATH=$(src)
 endif
