@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
 ifeq ($(KGSL_PATH),)
-KGSL_PATH=$(src)
+KGSL_PATH=$(srctree)/techpack/graphics
 endif
 
 # If we're not in an Android tree, select KGSL config
