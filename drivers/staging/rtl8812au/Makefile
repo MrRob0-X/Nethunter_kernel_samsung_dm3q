@@ -1,17 +1,17 @@
 EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS) -fno-pie
 EXTRA_CFLAGS += -O3
 EXTRA_CFLAGS += -Wno-unused-variable
-#EXTRA_CFLAGS += -Wno-unused-value
+EXTRA_CFLAGS += -Wno-unused-value
 EXTRA_CFLAGS += -Wno-unused-label
-#EXTRA_CFLAGS += -Wno-unused-parameter
+EXTRA_CFLAGS += -Wno-unused-parameter
 EXTRA_CFLAGS += -Wno-unused-function
 EXTRA_CFLAGS += -Wno-implicit-fallthrough
 EXTRA_CFLAGS += -Wno-cast-function-type
 #EXTRA_CFLAGS += -Wno-error=cast-function-type
-#EXTRA_CFLAGS += -Wno-parentheses-equality
-#EXTRA_CFLAGS += -Wno-pointer-bool-conversion
+EXTRA_CFLAGS += -Wno-parentheses-equality
+EXTRA_CFLAGS += -Wno-pointer-bool-conversion
 EXTRA_CFLAGS += -Wno-unknown-pragmas
-#EXTRA_CFLAGS += -Wno-unused
+EXTRA_CFLAGS += -Wno-unused
 EXTRA_CFLAGS += -Wno-address
 EXTRA_CFLAGS += -Wno-vla -g
 
