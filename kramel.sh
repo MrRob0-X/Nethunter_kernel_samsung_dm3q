@@ -77,27 +77,20 @@ if [[ "${COMPILER}" = gcc ]]; then
     )
 
 elif [[ "${COMPILER}" = clang ]]; then
-    if [ ! -d "${KDIR}/proton-clang" ]; then
-        wget https://github.com/kdrag0n/proton-clang/archive/refs/heads/master.zip
-        unzip "${KDIR}"/master.zip
-        mv "${KDIR}"/proton-clang-master "${KDIR}"/proton-clang
+    if [ ! -d "${KDIR}/clang" ]; then
+       mkdir clang;wget -O clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-12.0.0_r12/clang-r416183b1.tar.gz;tar -xf clang.tar.gz -C clang;rm -rf clang.tar.gz;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 arm64;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm 
     fi
 
-    KBUILD_COMPILER_STRING=$("${KDIR}"/proton-clang/bin/clang -v 2>&1 | head -n 1 | sed 's/(https..*//' | sed 's/ version//')
+    KBUILD_COMPILER_STRING=$("${KDIR}"/clang/bin/clang -v 2>&1 | head -n 1 | sed 's/(https..*//' | sed 's/ version//')
     export KBUILD_COMPILER_STRING
-    export PATH=$KDIR/proton-clang/bin/:/usr/bin/:${PATH}
+    export PATH=$KDIR/clang/bin/:$KDIR/arm64/bin:$KDIR/arm/bin:/usr/bin/:${PATH}
     MAKE+=(
         ARCH=arm64
         O=out
-        CROSS_COMPILE=aarch64-linux-gnu-
-        CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-        LD=ld.lld
-        AR=llvm-ar
-        AS=llvm-as
-        NM=llvm-nm
-        OBJDUMP=llvm-objdump
-        STRIP=llvm-strip
-        CC=clang
+        CROSS_COMPILE=aarch64-linux-android-
+        CROSS_COMPILE_ARM32=arm-linux-androideabi-
+        CLANG_TRIPLE=aarch64-linux-gnu-
+        CC=${KDIR}/clang/bin/clang 
     )
 fi
 
