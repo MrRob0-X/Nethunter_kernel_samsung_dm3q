@@ -1493,7 +1493,7 @@ static int do_read_toc(struct fsg_common *common, struct fsg_buffhd *bh)
 	u8		format;
 	int		i, len;
 #ifdef _SUPPORT_MAC_
-	int format = (common->cmnd[9] & 0xC0) >> 6;
+	format = (common->cmnd[9] & 0xC0) >> 6;
 #endif
 
 	format = common->cmnd[2] & 0xf;
