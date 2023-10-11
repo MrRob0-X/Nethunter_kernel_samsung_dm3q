@@ -2791,6 +2791,8 @@ int security_get_user_sids(struct selinux_state *state,
 	*sids = NULL;
 	*nel = 0;
 
+	out: // Declare the label 'out'
+
 	if (!ss_initialized) // SEC_SELINUX_PORTING_COMMON Change to use RKP
 		goto out;
 
