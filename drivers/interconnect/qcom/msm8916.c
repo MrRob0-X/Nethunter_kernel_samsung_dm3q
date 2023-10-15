@@ -325,7 +325,7 @@ MODULE_DEVICE_TABLE(of, msm8916_noc_of_match);
 
 static struct platform_driver msm8916_noc_driver = {
 	.probe = msm8916_qnoc_probe,
-	.remove = qnoc_remove,
+	.remove = idr_remove,
 	.driver = {
 		.name = "qnoc-msm8916",
 		.of_match_table = msm8916_noc_of_match,
