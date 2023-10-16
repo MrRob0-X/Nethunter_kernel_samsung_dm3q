@@ -78,7 +78,7 @@ if [[ "${COMPILER}" = gcc ]]; then
 
 elif [[ "${COMPILER}" = clang ]]; then
     if [ ! -d "${KDIR}/clang" ]; then
-       mkdir clang;wget -O clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-12.0.0_r12/clang-r416183b1.tar.gz;tar -xf clang.tar.gz -C clang;rm -rf clang.tar.gz;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 arm64;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm 
+       mkdir clang;wget -O clang.tar.gz https://android.googlesource.com/platform//prebuilts/clang/host/linux-x86/+archive/edcdafdf2823719fa788daf9447ee43203cdb635/clang-r450784e.tar.gz;tar -xf clang.tar.gz -C clang;rm -rf clang.tar.gz;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 arm64;git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm 
     fi
 
     KBUILD_COMPILER_STRING=$("${KDIR}"/clang/bin/clang -v 2>&1 | head -n 1 | sed 's/(https..*//' | sed 's/ version//')
