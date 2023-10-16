@@ -282,7 +282,7 @@ static bool page_pxn_set(unsigned long addr, u64 *xn, u64 *x, u64 *v_x)
 	else {
 		if (addr >= (u64)__end_rodata) {
 			u64 res = 0;
-			uh_call(UH_APP_RKP, RKP_TEST_TEXT_VALID, addr, &(u64)res, 0, 0);
+			uh_call(UH_APP_RKP, RKP_TEST_TEXT_VALID, addr, &res, 0, 0); // Pass the address of the variable
 			if (res)
 				*v_x += 1;
 		}
