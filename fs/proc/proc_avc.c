@@ -147,7 +147,7 @@ static int __init sec_avc_log_late_init(void)
 		return 0;
 	}
 
-	entry = proc_create_data("avc_msg", S_IFREG | 0x444, NULL, &avc_msg_file_ops, NULL);
+	entry = proc_create_data("avc_msg", S_IFREG | 0x444, NULL, (const struct proc_ops *)&avc_msg_file_ops, NULL);
 	if (!entry) {
 		pr_err("%s: failed to create proc entry\n", __func__);
 		return 0;
