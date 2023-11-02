@@ -8,7 +8,7 @@ else
 endif # TARGET_USES_QMAA
 
 ifeq ($(KGSL_ENABLED),true)
-KGSL_SELECT := CONFIG_QCOM_KGSL=m
+KGSL_SELECT := CONFIG_QCOM_KGSL=y
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
