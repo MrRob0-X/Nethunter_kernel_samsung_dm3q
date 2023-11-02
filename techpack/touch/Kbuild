@@ -61,5 +61,3 @@ ifeq ($(CONFIG_TOUCHSCREEN_DUMMY), y)
 
 	obj-$(CONFIG_MSM_TOUCH) += dummy_ts.o
 endif
-
-CDEFINES += -DBUILD_TIMESTAMP=\"$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')\"
